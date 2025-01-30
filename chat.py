@@ -9,7 +9,7 @@ from langchain.chains.llm import LLMChain
 st.title("💬 Chat with DeepSeek R1 Model")
 
 # Inisialisasi model (pastikan Ollama sudah berjalan)
-llm = Ollama(model="deepseek-r1:1.5b")
+llm = Ollama(model="deepseek-r1:7b")
 
 # Template prompt untuk chat
 chat_prompt = """
