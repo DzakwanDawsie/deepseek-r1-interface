@@ -32,8 +32,22 @@ if user_input:
     # Menambahkan input pengguna ke history
     st.session_state.history.append(f"You: {user_input}")
 
+    # Mendapatkan timestamp sebelum eksekusi
+    start_time = time.time()
+    start_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"⏳ Processing started at: {start_timestamp}")
+    
     # Mendapatkan respon dari model
     response = llm_chain.run(question=user_input)
+
+    # Mendapatkan timestamp setelah eksekusi
+    end_time = time.time()
+    end_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    execution_time = end_time - start_time
+    print(f"✅ Processing ended at: {end_timestamp}")
+    print(f"⏳ Execution time: {execution_time:.2f}")
+
+    # Simpan hasil
     st.session_state.history.append(f"Model: {response}")
 
 # Menampilkan history percakapan
